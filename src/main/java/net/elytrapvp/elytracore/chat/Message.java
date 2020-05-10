@@ -14,21 +14,30 @@ public class Message
     }
 
     /**
-     * Get the "No Permission" message.
-     * @return "No Permission" message.
-     */
-    public static String noPermission()
-    {
-        return translate("&2&lError &8- &cYou do not have permission to do that.");
-    }
-
-    /**
      * Get the "Not A Player" Message
      * @return "Not A Player Message"
      */
     public static String notAPlayer()
     {
         return translate("&2&lError &8- &cOnly a player can do that!");
+    }
+
+    /**
+     * Get the "Not Online" Message
+     * @return "Not Online" message.
+     */
+    public static String notOnline()
+    {
+        return translate("&2&lError &8- &cThat player is not online.");
+    }
+
+    /**
+     * Get the "No Permission" message.
+     * @return "No Permission" message.
+     */
+    public static String noPermission()
+    {
+        return translate("&2&lError &8- &cYou do not have permission to do that.");
     }
 
     /**
