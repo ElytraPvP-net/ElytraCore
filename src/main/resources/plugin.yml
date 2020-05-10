@@ -13,6 +13,26 @@ commands:
   ecsee:
     usage: /<command> [player]
     description: View a player's ender chest.
+  gamemode:
+    usage: /<command>
+    description: Change your gamemode.
+    aliases: [gm]
+  gamemode0:
+    usage: /<command>
+    description: Change your gamemode.
+    aliases: [gms, gm0]
+  gamemode1:
+    usage: /<command>
+    description: Change your gamemode.
+    aliases: [gmc, gm1]
+  gamemode2:
+    usage: /<command>
+    description: Change your gamemode.
+    aliases: [gma, gm2]
+  gamemode3:
+    usage: /<command>
+    description: Change your gamemode.
+    aliases: [gmsp, gm3]
   invsee:
     usage: /<command> [player]
     description: View a player's inventory.
