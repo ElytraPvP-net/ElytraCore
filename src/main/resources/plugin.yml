@@ -6,6 +6,10 @@ version: 1.0
 author: ElytraPvP
 
 commands:
+  discord:
+    usage: /<command>
+    description: View the server's discord.
+    aliases: [dc]
   list:
     usage: /<command>
     description: View online players.
