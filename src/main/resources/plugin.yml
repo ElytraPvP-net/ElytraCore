@@ -10,6 +10,12 @@ commands:
     usage: /<command>
     description: View the server's discord.
     aliases: [dc]
+  ecsee:
+    usage: /<command> [player]
+    description: View a player's ender chest.
+  invsee:
+    usage: /<command> [player]
+    description: View a player's inventory.
   list:
     usage: /<command>
     description: View online players.
