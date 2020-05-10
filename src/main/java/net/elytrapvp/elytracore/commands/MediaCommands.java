@@ -11,7 +11,7 @@ public class MediaCommands implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
-        switch (label.toLowerCase())
+        switch (cmd.getName())
         {
             case "discord":
                 ElytraChat.sendMessage(sender, "&2&lDiscord &8- &ahttps://discord.gg/YWGFeNA");
