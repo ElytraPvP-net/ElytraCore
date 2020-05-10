@@ -1,5 +1,12 @@
 main: net.elytrapvp.elytracore.ElytraCore
 
+name: ElytraCore
 api-version: 1.15
 version: 1.0
 author: ElytraPvP
+
+commands:
+  list:
+    usage: /<command>
+    description: View online players.
+    aliases: [online, players]

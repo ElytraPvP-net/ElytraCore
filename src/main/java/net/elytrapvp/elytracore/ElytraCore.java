@@ -1,5 +1,6 @@
 package net.elytrapvp.elytracore;
 
+import net.elytrapvp.elytracore.commands.ListCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ElytraCore extends JavaPlugin
@@ -15,6 +16,11 @@ public class ElytraCore extends JavaPlugin
     public void onDisable()
     {
 
+    }
+
+    private void registerCommands()
+    {
+        getCommand("list").setExecutor(new ListCommand());
     }
 
 }
