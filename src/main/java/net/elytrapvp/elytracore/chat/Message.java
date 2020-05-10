@@ -4,6 +4,14 @@ import org.bukkit.ChatColor;
 
 public class Message
 {
+    /**
+     * Get the divider message.
+     * @return Divider message.
+     */
+    public static String divder()
+    {
+        return translate("&2&l]&8&m---------------------------------------------------&2&l[");
+    }
 
     /**
      * Get the "No Permission" message.
