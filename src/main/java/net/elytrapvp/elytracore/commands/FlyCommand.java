@@ -21,7 +21,7 @@ public class FlyCommand implements CommandExecutor
         }
 
         // Exit if no permission.
-        if(!sender.hasPermission("ep.help"))
+        if(!sender.hasPermission("ep.fly"))
         {
             sender.sendMessage(Message.noPermission());
             return true;
