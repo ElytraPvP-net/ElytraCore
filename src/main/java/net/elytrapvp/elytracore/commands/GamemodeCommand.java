@@ -87,12 +87,12 @@ public class GamemodeCommand implements CommandExecutor
         }
 
         p.setGameMode(GameMode.ADVENTURE);
-        ElytraChat.sendMessage(p, "&2&lGamemode &8- &fYou have switched to &fAdventure&a.");
+        ElytraChat.sendMessage(p, "&2&lGamemode &8- &aYou have switched to &fAdventure&a.");
     }
 
     /**
      * Set the player to Creative mode.
-     * @param p
+     * @param p Player
      */
     private void setCreative(Player p)
     {
@@ -104,7 +104,7 @@ public class GamemodeCommand implements CommandExecutor
         }
 
         p.setGameMode(GameMode.CREATIVE);
-        ElytraChat.sendMessage(p, "&2&lGamemode &8- &fYou have switched to &fCreative&a.");
+        ElytraChat.sendMessage(p, "&2&lGamemode &8- &aYou have switched to &fCreative&a.");
     }
 
     /**
@@ -121,7 +121,7 @@ public class GamemodeCommand implements CommandExecutor
         }
 
         p.setGameMode(GameMode.SPECTATOR);
-        ElytraChat.sendMessage(p, "&2&lGamemode &8- &fYou have switched to &fSpectator&a.");
+        ElytraChat.sendMessage(p, "&2&lGamemode &8- &aYou have switched to &fSpectator&a.");
     }
 
     /**
@@ -138,7 +138,7 @@ public class GamemodeCommand implements CommandExecutor
         }
 
         p.setGameMode(GameMode.SURVIVAL);
-        ElytraChat.sendMessage(p, "&2&lGamemode &8- &fYou have switched to &fSurvival&a.");
+        ElytraChat.sendMessage(p, "&2&lGamemode &8- &aYou have switched to &fSurvival&a.");
     }
 
 }
