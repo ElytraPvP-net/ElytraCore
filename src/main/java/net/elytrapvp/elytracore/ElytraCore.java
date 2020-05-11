@@ -34,6 +34,7 @@ public class ElytraCore extends JavaPlugin
         getCommand("clearchat").setExecutor(new ClearChatCommand());
         getCommand("discord").setExecutor(new MediaCommands());
         getCommand("ecsee").setExecutor(new InvSeeCommand());
+        getCommand("feed").setExecutor(new HealCommand());
         getCommand("fly").setExecutor(new FlyCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("gamemode0").setExecutor(new GamemodeCommand());
@@ -41,6 +42,7 @@ public class ElytraCore extends JavaPlugin
         getCommand("gamemode2").setExecutor(new GamemodeCommand());
         getCommand("gamemode3").setExecutor(new GamemodeCommand());
         getCommand("getip").setExecutor(new GetIPCommand());
+        getCommand("heal").setExecutor(new HealCommand());
         getCommand("invsee").setExecutor(new InvSeeCommand());
         getCommand("list").setExecutor(new ListCommand());
         getCommand("pcc").setExecutor(new ClearChatCommand());

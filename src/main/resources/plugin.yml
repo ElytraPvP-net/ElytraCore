@@ -17,6 +17,9 @@ commands:
   ecsee:
     usage: /<command> [player]
     description: View a player's ender chest.
+  feed:
+    usage: /<command>
+    description: Feed yourself.
   fly:
     usage: /<command> [player]
     description: Enable or disable fly.
@@ -45,6 +48,9 @@ commands:
     usage: /<command>
     description: Get a player's ip address.
     aliases: [ip]
+  heal:
+    usage: /<command>
+    description: Heal yourself
   invsee:
     usage: /<command> [player]
     description: View a player's inventory.
