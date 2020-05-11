@@ -30,8 +30,8 @@ public class ListCommand implements CommandExecutor
 
         sender.sendMessage(Message.divder());
         ElytraChat.centeredChat(sender, "&2&lOnline Players");
-        ElytraChat.sendMessage(sender, "  &aThere are currently &f" + Bukkit.getOnlinePlayers() + " ^aplayers online.");
-        sender.sendMessage(online.substring(0, online.length() - 3));
+        ElytraChat.sendMessage(sender, "  &aThere are currently &f" + Bukkit.getOnlinePlayers().size() + " &aplayers online.");
+        sender.sendMessage(online.substring(0, online.length() - 2));
         sender.sendMessage(Message.divder());
         return true;
     }
