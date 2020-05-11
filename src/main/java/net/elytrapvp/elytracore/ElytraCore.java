@@ -1,21 +1,29 @@
 package net.elytrapvp.elytracore;
 
 import net.elytrapvp.elytracore.commands.*;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ElytraCore extends JavaPlugin
 {
+    private static Plugin plugin;
 
     @Override
     public void onEnable()
     {
+        plugin = this;
         registerCommands();
     }
 
     @Override
     public void onDisable()
     {
+        plugin = null;
+    }
 
+    public static Plugin getPlugin()
+    {
+        return plugin;
     }
 
     /**
@@ -34,6 +42,9 @@ public class ElytraCore extends JavaPlugin
         getCommand("invsee").setExecutor(new InvSeeCommand());
         getCommand("list").setExecutor(new ListCommand());
         getCommand("pcc").setExecutor(new ClearChatCommand());
+        getCommand("tpa").setExecutor(new TPRequestCommand());
+        getCommand("tpaccept").setExecutor(new TPRequestCommand());
+        getCommand("tpdeny").setExecutor(new TPRequestCommand());
     }
 
 }
