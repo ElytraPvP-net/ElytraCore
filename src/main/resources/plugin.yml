@@ -6,6 +6,9 @@ version: 1.0
 author: ElytraPvP
 
 commands:
+  afk:
+    usage: /<command>
+    description: Set yourself as afk.
   clearchat:
     usage: /<command>
     description: Clear the chat

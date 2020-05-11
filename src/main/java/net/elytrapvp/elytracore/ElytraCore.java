@@ -31,6 +31,7 @@ public class ElytraCore extends JavaPlugin
      */
     private void registerCommands()
     {
+        getCommand("afk").setExecutor(new AFKCommand());
         getCommand("clearchat").setExecutor(new ClearChatCommand());
         getCommand("discord").setExecutor(new MediaCommands());
         getCommand("ecsee").setExecutor(new InvSeeCommand());
