@@ -1,9 +1,6 @@
 package net.elytrapvp.elytracore;
 
-import net.elytrapvp.elytracore.commands.GamemodeCommand;
-import net.elytrapvp.elytracore.commands.InvSeeCommand;
-import net.elytrapvp.elytracore.commands.ListCommand;
-import net.elytrapvp.elytracore.commands.MediaCommands;
+import net.elytrapvp.elytracore.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ElytraCore extends JavaPlugin
@@ -26,6 +23,7 @@ public class ElytraCore extends JavaPlugin
      */
     private void registerCommands()
     {
+        getCommand("clearchat").setExecutor(new ClearChatCommand());
         getCommand("discord").setExecutor(new MediaCommands());
         getCommand("ecsee").setExecutor(new InvSeeCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
@@ -35,6 +33,7 @@ public class ElytraCore extends JavaPlugin
         getCommand("gamemode3").setExecutor(new GamemodeCommand());
         getCommand("invsee").setExecutor(new InvSeeCommand());
         getCommand("list").setExecutor(new ListCommand());
+        getCommand("pcc").setExecutor(new ClearChatCommand());
     }
 
 }

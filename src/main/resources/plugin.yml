@@ -6,6 +6,10 @@ version: 1.0
 author: ElytraPvP
 
 commands:
+  clearchat:
+    usage: /<command>
+    description: Clear the chat
+    aliases: [cc]
   discord:
     usage: /<command>
     description: View the server's discord.
@@ -40,3 +44,6 @@ commands:
     usage: /<command>
     description: View online players.
     aliases: [online, players]
+  pcc:
+    usage: /<command>
+    description: Clear your personal chat.
