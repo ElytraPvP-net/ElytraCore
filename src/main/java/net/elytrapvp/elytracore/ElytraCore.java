@@ -34,17 +34,20 @@ public class ElytraCore extends JavaPlugin
         getCommand("clearchat").setExecutor(new ClearChatCommand());
         getCommand("discord").setExecutor(new MediaCommands());
         getCommand("ecsee").setExecutor(new InvSeeCommand());
+        getCommand("fly").setExecutor(new FlyCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("gamemode0").setExecutor(new GamemodeCommand());
         getCommand("gamemode1").setExecutor(new GamemodeCommand());
         getCommand("gamemode2").setExecutor(new GamemodeCommand());
         getCommand("gamemode3").setExecutor(new GamemodeCommand());
+        getCommand("getip").setExecutor(new GetIPCommand());
         getCommand("invsee").setExecutor(new InvSeeCommand());
         getCommand("list").setExecutor(new ListCommand());
         getCommand("pcc").setExecutor(new ClearChatCommand());
         getCommand("tpa").setExecutor(new TPRequestCommand());
         getCommand("tpaccept").setExecutor(new TPRequestCommand());
         getCommand("tpdeny").setExecutor(new TPRequestCommand());
+        getCommand("uuid").setExecutor(new UUIDCommand());
     }
 
 }

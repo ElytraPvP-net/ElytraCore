@@ -17,6 +17,10 @@ commands:
   ecsee:
     usage: /<command> [player]
     description: View a player's ender chest.
+  fly:
+    usage: /<command> [player]
+    description: Enable or disable fly.
+    aliases: [f]
   gamemode:
     usage: /<command>
     description: Change your gamemode.
@@ -37,6 +41,10 @@ commands:
     usage: /<command>
     description: Change your gamemode.
     aliases: [gmsp, gm3]
+  getip:
+    usage: /<command>
+    description: Get a player's ip address.
+    aliases: [ip]
   invsee:
     usage: /<command> [player]
     description: View a player's inventory.
@@ -56,3 +64,6 @@ commands:
   tpdeny:
     usage: /<command>
     description: Deny a teleport request.
+  uuid:
+    usage: /<command>
+    description: Get a player's uuid.
