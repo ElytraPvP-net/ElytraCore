@@ -1,5 +1,6 @@
 package net.elytrapvp.elytracore.commands;
 
+import net.elytrapvp.elytracore.chat.ElytraChat;
 import net.elytrapvp.elytracore.chat.Message;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -22,7 +23,7 @@ public class ClearChatCommand implements CommandExecutor
 
         Player p = (Player) sender;
 
-        switch(label)
+        switch(cmd.getName())
         {
             case "pcc":
                 playerClearChat(p);
@@ -49,6 +50,8 @@ public class ClearChatCommand implements CommandExecutor
         {
             playerClearChat(pl);
         }
+
+        ElytraChat.sendMessage(p, "&2&lChat &8- &aChat has been cleared.");
     }
 
     private void playerClearChat(Player p)
