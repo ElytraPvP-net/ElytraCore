@@ -14,7 +14,7 @@ public class MediaCommands implements CommandExecutor
         switch (cmd.getName())
         {
             case "discord":
-                ElytraChat.sendMessage(sender, "&2&lDiscord &8- &ahttps://discord.gg/YWGFeNA");
+                ElytraChat.sendMessage(sender, "&2&lDiscord &8- &ahttps://discord.elytrapvp.net");
                 break;
         }
 
