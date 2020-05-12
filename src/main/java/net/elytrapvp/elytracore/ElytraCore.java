@@ -6,12 +6,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ElytraCore extends JavaPlugin
 {
+    private static final ElytraSettings settings = ElytraSettings.getInstance();
     private static Plugin plugin;
 
     @Override
     public void onEnable()
     {
         plugin = this;
+
+        // Setup config file.
+        settings.setup(this);
+
+        // Register commands and listeners used by the plugin.
         registerCommands();
     }
 
