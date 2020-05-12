@@ -5,3 +5,6 @@ MySQL:
   username: "root"
   password: "password"
   useSSL: true
+
+JoinMessage: true
+QuitMessage: true

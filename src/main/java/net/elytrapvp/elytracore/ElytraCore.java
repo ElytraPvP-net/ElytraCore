@@ -1,6 +1,8 @@
 package net.elytrapvp.elytracore;
 
 import net.elytrapvp.elytracore.commands.*;
+import net.elytrapvp.elytracore.listeners.PlayerJoinListener;
+import net.elytrapvp.elytracore.listeners.PlayerQuitListener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,6 +21,7 @@ public class ElytraCore extends JavaPlugin
 
         // Register commands and listeners used by the plugin.
         registerCommands();
+        registerListeners();
     }
 
     @Override
@@ -57,6 +60,12 @@ public class ElytraCore extends JavaPlugin
         getCommand("tpaccept").setExecutor(new TPRequestCommand());
         getCommand("tpdeny").setExecutor(new TPRequestCommand());
         getCommand("uuid").setExecutor(new UUIDCommand());
+    }
+
+    private void registerListeners()
+    {
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
     }
 
 }
