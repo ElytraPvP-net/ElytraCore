@@ -76,3 +76,6 @@ commands:
   uuid:
     usage: /<command>
     description: Get a player's uuid.
+  website:
+    usage: /<command>
+    description: Visit the server's website.
