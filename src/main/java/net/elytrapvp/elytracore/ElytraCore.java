@@ -60,6 +60,7 @@ public class ElytraCore extends JavaPlugin
         getCommand("tpaccept").setExecutor(new TPRequestCommand());
         getCommand("tpdeny").setExecutor(new TPRequestCommand());
         getCommand("uuid").setExecutor(new UUIDCommand());
+        getCommand("vanish").setExecutor(new VanishCommand());
         getCommand("website").setExecutor(new MediaCommands());
     }
 

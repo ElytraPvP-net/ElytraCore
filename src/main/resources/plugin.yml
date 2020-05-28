@@ -76,6 +76,9 @@ commands:
   uuid:
     usage: /<command>
     description: Get a player's uuid.
+  vanish:
+    usage: /<command>
+    description: Hide yourself from other players.
   website:
     usage: /<command>
     description: Visit the server's website.
