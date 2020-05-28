@@ -18,7 +18,7 @@ public class MediaCommands implements CommandExecutor
                 break;
 
             case "website":
-                ElytraChat.sendMessage(sender, "&2&lWebsite &80 &ahttp://www.elytrapvp.net");
+                ElytraChat.sendMessage(sender, "&2&lWebsite &8- &ahttp://www.elytrapvp.net");
                 break;
         }
 
