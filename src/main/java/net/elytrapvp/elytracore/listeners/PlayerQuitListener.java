@@ -21,13 +21,13 @@ public class PlayerQuitListener implements Listener
         VanishCommand.getVanished().remove(p.getUniqueId());
 
         // Set join message to null if set.
-        if(!settings.getConfig().getBoolean("QutMessage"))
+        if(!settings.getConfig().getBoolean("QuitMessage"))
         {
             e.setQuitMessage(null);
             return;
         }
 
-        e.setQuitMessage(Message.translate("&2[&a-&2] &f") + p.getDisplayName());
+        e.setQuitMessage(Message.translate("&2[&c-&2] &f") + p.getDisplayName());
     }
 
 }
