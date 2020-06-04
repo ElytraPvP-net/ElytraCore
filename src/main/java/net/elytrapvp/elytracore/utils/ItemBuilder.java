@@ -46,11 +46,13 @@ public class ItemBuilder
      * Add lore to the item.
      * @param str String
      */
-    public void addLore(String str)
+    public ItemBuilder addLore(String str)
     {
         List<String> lore = meta.getLore();
         lore.add(Message.translate(str));
         meta.setLore(lore);
+
+        return this;
     }
 
     /**
@@ -67,26 +69,29 @@ public class ItemBuilder
      * Set the display name of the item.
      * @param str Display name
      */
-    public void setDisplayName(String str)
+    public ItemBuilder setDisplayName(String str)
     {
         meta.setDisplayName(Message.translate(str));
+        return this;
     }
 
     /**
      * Set the lore of an item.
      * @param lore
      */
-    public void setLore(String... lore)
+    public ItemBuilder setLore(String... lore)
     {
         meta.setLore(Arrays.asList(lore));
+        return this;
     }
 
     /**
      * Set the item to be unbreakable.
      */
-    public void setUnbreakable()
+    public ItemBuilder setUnbreakable()
     {
         meta.setUnbreakable(true);
+        return this;
     }
 
 }
