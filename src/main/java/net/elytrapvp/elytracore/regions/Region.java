@@ -3,6 +3,12 @@ package net.elytrapvp.elytracore.regions;
 import org.bukkit.Location;
 import org.bukkit.World;
 
+/**
+ * Represents an area between 2 locations.
+ * @author partykid4
+ * @version 1.0
+ * @since 0.2
+ */
 public class Region
 {
     private final World world;
