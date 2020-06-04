@@ -85,3 +85,11 @@ commands:
   vote:
     usage: /<command>
     description: View the vote links.
+  workbench:
+    usage: /<command>
+    description: Open a workbench inventory.
+    aliases: [wb]
+  enderchest:
+    usage: /<command>
+    description: Open your enderchest.
+    aliases: [ec]

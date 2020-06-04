@@ -64,6 +64,8 @@ public class ElytraCore extends JavaPlugin
         getCommand("vanish").setExecutor(new VanishCommand());
         getCommand("website").setExecutor(new MediaCommands());
         getCommand("vote").setExecutor(new VoteCommand());
+        getCommand("enderchest").setExecutor(new WorkbenchCommand());
+        getCommand("workbench").setExecutor(new WorkbenchCommand());
     }
 
     private void registerListeners()
