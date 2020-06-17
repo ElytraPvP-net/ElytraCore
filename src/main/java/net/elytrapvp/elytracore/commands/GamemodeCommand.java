@@ -1,7 +1,6 @@
 package net.elytrapvp.elytracore.commands;
 
-import net.elytrapvp.elytracore.chat.ElytraChat;
-import net.elytrapvp.elytracore.chat.Message;
+import net.elytrapvp.elytralibrary.chat.ChatUtils;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,7 +14,7 @@ public class GamemodeCommand implements CommandExecutor
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         // Exit if sender isn't a player.
         if (!(sender instanceof Player)) {
-            sender.sendMessage(Message.notAPlayer());
+            ChatUtils.chat(sender, "&2&lError &8- &cOnly a player can use that command.");
             return true;
         }
 
@@ -28,7 +27,7 @@ public class GamemodeCommand implements CommandExecutor
                 // Exit if no arguments
                 if(args.length == 0)
                 {
-                    p.sendMessage(Message.usage("/gamemode [gamemode]"));
+                    ChatUtils.chat(p, "&2&lUsage &8- &c/gamemode [gamemode]");
                     return true;
                 }
 
@@ -82,12 +81,12 @@ public class GamemodeCommand implements CommandExecutor
         // Exit if player does not have permission.
         if(!p.hasPermission("ep.gamemode.adventure"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
             return;
         }
 
         p.setGameMode(GameMode.ADVENTURE);
-        ElytraChat.sendMessage(p, "&2&lGamemode &8- &aYou have switched to &fAdventure&a.");
+        ChatUtils.chat(p, "&2&lGamemode &8- &aYou have switched to &fAdventure&a.");
     }
 
     /**
@@ -99,12 +98,12 @@ public class GamemodeCommand implements CommandExecutor
         // Exit if player does not have permission.
         if(!p.hasPermission("ep.gamemode.creative"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
             return;
         }
 
         p.setGameMode(GameMode.CREATIVE);
-        ElytraChat.sendMessage(p, "&2&lGamemode &8- &aYou have switched to &fCreative&a.");
+        ChatUtils.chat(p, "&2&lGamemode &8- &aYou have switched to &fCreative&a.");
     }
 
     /**
@@ -116,12 +115,12 @@ public class GamemodeCommand implements CommandExecutor
         // Exit if player does not have permission.
         if(!p.hasPermission("ep.gamemode.spectator"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
             return;
         }
 
         p.setGameMode(GameMode.SPECTATOR);
-        ElytraChat.sendMessage(p, "&2&lGamemode &8- &aYou have switched to &fSpectator&a.");
+        ChatUtils.chat(p, "&2&lGamemode &8- &aYou have switched to &fSpectator&a.");
     }
 
     /**
@@ -133,12 +132,12 @@ public class GamemodeCommand implements CommandExecutor
         // Exit if player does not have permission.
         if(!p.hasPermission("ep.gamemode.survival"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
             return;
         }
 
         p.setGameMode(GameMode.SURVIVAL);
-        ElytraChat.sendMessage(p, "&2&lGamemode &8- &aYou have switched to &fSurvival&a.");
+        ChatUtils.chat(p, "&2&lGamemode &8- &aYou have switched to &fSurvival&a.");
     }
 
 }

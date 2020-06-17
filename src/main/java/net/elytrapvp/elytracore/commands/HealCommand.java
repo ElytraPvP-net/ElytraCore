@@ -1,7 +1,6 @@
 package net.elytrapvp.elytracore.commands;
 
-import net.elytrapvp.elytracore.chat.ElytraChat;
-import net.elytrapvp.elytracore.chat.Message;
+import net.elytrapvp.elytralibrary.chat.ChatUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,7 +15,7 @@ public class HealCommand implements CommandExecutor
         // Exit if not a player.
         if(!(sender instanceof Player))
         {
-            sender.sendMessage(Message.notAPlayer());
+            ChatUtils.chat(sender, "&2&lError &8- &cOnly a player can use that command.");
             return true;
         }
 
@@ -27,24 +26,24 @@ public class HealCommand implements CommandExecutor
             case "heal":
                 if(!p.hasPermission("ep.heal"))
                 {
-                    p.sendMessage(Message.noPermission());
+                    ChatUtils.chat(p, "&2&lError 78- &cYou do not have access to that command.");
                    return true;
                 }
 
                 p.setHealth(p.getMaxHealth());
-                ElytraChat.sendMessage(p, "&2&lHeal &8- &aYou have been healed.");
+                ChatUtils.chat(p, "&2&lHeal &8- &aYou have been healed.");
 
                 break;
 
             case "feed":
                 if(!p.hasPermission("ep.feed"))
                 {
-                    p.sendMessage(Message.noPermission());
+                    ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
                     return true;
                 }
 
                 p.setFoodLevel(20);
-                ElytraChat.sendMessage(p, "&2&lFeed &8- &aYou have been fed.");
+                ChatUtils.chat(p, "&2&lFeed &8- &aYou have been fed.");
                 break;
         }
 

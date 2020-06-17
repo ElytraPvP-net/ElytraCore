@@ -1,13 +1,10 @@
 package net.elytrapvp.elytracore.commands;
 
-import net.elytrapvp.elytracore.chat.Message;
+import net.elytrapvp.elytralibrary.chat.ChatUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryView;
 
 public class WorkbenchCommand implements CommandExecutor
 {
@@ -18,14 +15,14 @@ public class WorkbenchCommand implements CommandExecutor
         // Exit if not a player.
         if(!(sender instanceof Player))
         {
-           sender.sendMessage(Message.notAPlayer());
+            ChatUtils.chat(sender, "&2&lError &8- &cYou must be a player to use that command.");
            return true;
         }
 
         // Exit if no permission
         if(sender.hasPermission("ep." + cmd.getName()))
         {
-            sender.sendMessage(Message.noPermission());
+            ChatUtils.chat(sender, "&2&lError &8- &cYou do not have access to that command.");
             return true;
         }
 

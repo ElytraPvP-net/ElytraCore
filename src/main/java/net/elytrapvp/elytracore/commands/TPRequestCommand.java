@@ -1,8 +1,7 @@
 package net.elytrapvp.elytracore.commands;
 
 import net.elytrapvp.elytracore.ElytraCore;
-import net.elytrapvp.elytracore.chat.ElytraChat;
-import net.elytrapvp.elytracore.chat.Message;
+import net.elytrapvp.elytralibrary.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,7 +22,7 @@ public class TPRequestCommand implements CommandExecutor
         // Exit if sender is not a player.
         if(!(sender instanceof Player))
         {
-            sender.sendMessage(Message.notAPlayer());
+            ChatUtils.chat(sender, "&2&lError &8- &cOnly players can use that command.");
             return true;
         }
 
@@ -52,14 +51,14 @@ public class TPRequestCommand implements CommandExecutor
         // Exit if no permission.
         if(!p.hasPermission("ee.tpa"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
             return;
         }
 
         // Exit if no arguments.
         if(args.length == 0)
         {
-            p.sendMessage(Message.usage("/tpa [player]"));
+            ChatUtils.chat(p, "&2&lUsage &8- &c/tpa [player]");
             return;
         }
 
@@ -67,17 +66,17 @@ public class TPRequestCommand implements CommandExecutor
         // Exit if target is not online
         if(t == null)
         {
-            p.sendMessage(Message.notOnline());
+            ChatUtils.chat(p, "&2&lError &8- &cThat player is not online.");
             return;
         }
 
-        p.sendMessage(Message.divder());
-        ElytraChat.centeredChat(t, "&f"+ t.getDisplayName() + " &ais requesting to teleport to you.");
-        ElytraChat.sendMessage(t, "  &8» &f/tpaccept &ato accept.");
-        ElytraChat.sendMessage(t, "  &8» &f/tpdeny &ato deny.");
-        ElytraChat.sendMessage(t, "");
-        ElytraChat.sendMessage(t, "  &aThis request will be discarded in 60 seconds.");
-        p.sendMessage(Message.divder());
+        ChatUtils.chat(p, "&2&l]&8&m---------------------------------------------------&2&l[");
+        ChatUtils.centeredChat(t, "&f"+ t.getDisplayName() + " &ais requesting to teleport to you.");
+        ChatUtils.chat(t, "  &8» &f/tpaccept &ato accept.");
+        ChatUtils.chat(t, "  &8» &f/tpdeny &ato deny.");
+        ChatUtils.chat(t, "");
+        ChatUtils.chat(t, "  &aThis request will be discarded in 60 seconds.");
+        ChatUtils.chat(p, "&2&l]&8&m---------------------------------------------------&2&l[");
 
         requests.put(t.getUniqueId(), p.getUniqueId());
 
@@ -86,12 +85,12 @@ public class TPRequestCommand implements CommandExecutor
             if(requests.containsKey(t.getUniqueId()) && requests.get(t.getUniqueId()) == p.getUniqueId())
             {
                 requests.remove(t.getUniqueId());
-                ElytraChat.sendMessage(p, "&2&lTeleport &8- &aRequest timed out.");
-                ElytraChat.sendMessage(t, "&2&lTeleport &8- &aRequest timed out.");
+                ChatUtils.chat(p, "&2&lTeleport &8- &aRequest timed out.");
+                ChatUtils.chat(t, "&2&lTeleport &8- &aRequest timed out.");
             }
         }, 1200);
 
-        ElytraChat.sendMessage(p, "&2&lTeleport &8- &aTeleport request sent.");
+        ChatUtils.chat(p, "&2&lTeleport &8- &aTeleport request sent.");
 
 
     }
@@ -101,14 +100,14 @@ public class TPRequestCommand implements CommandExecutor
         // Exit if no permission.
         if(!p.hasPermission("ee.tpaccept"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
             return;
         }
 
         // Exit if no requests
         if(!requests.containsKey(p.getUniqueId()))
         {
-            ElytraChat.sendMessage(p, "&2&lError &8- &cYou do not have any pending requests.");
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have any pending requests.");
             return;
         }
 
@@ -117,13 +116,13 @@ public class TPRequestCommand implements CommandExecutor
         // Exit if player is not online.
         if(t == null)
         {
-            ElytraChat.sendMessage(p, "&2&lError &8- &cYou do not have any pending requests.");
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have any pending requests.");
             requests.remove(p.getUniqueId());
             return;
         }
 
-        ElytraChat.sendMessage(p, "&2&lTeleport &8- &aTeleport request accepted.");
-        ElytraChat.sendMessage(t, "&2&lTeleport &8- &aRequest accepted. Teleporting in &f5 &aseconds.");
+        ChatUtils.chat(p, "&2&lTeleport &8- &aTeleport request accepted.");
+        ChatUtils.chat(t, "&2&lTeleport &8- &aRequest accepted. Teleporting in &f5 &aseconds.");
         requests.remove(t.getUniqueId());
         BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
         scheduler.scheduleSyncDelayedTask(ElytraCore.getPlugin(), () -> {
@@ -136,14 +135,14 @@ public class TPRequestCommand implements CommandExecutor
         // Exit if no permission.
         if(!p.hasPermission("ee.tpdeny"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
             return;
         }
 
         // Exit if no requests
         if(!requests.containsKey(p.getUniqueId()))
         {
-            ElytraChat.sendMessage(p, "&2&lError &8- &cYou do not have any pending requests.");
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have any pending requests.");
             return;
         }
 
@@ -152,13 +151,13 @@ public class TPRequestCommand implements CommandExecutor
         // Exit if player is not online.
         if(t == null)
         {
-            ElytraChat.sendMessage(p, "&2&lError &8- &cYou do not have any pending requests.");
+            ChatUtils.chat(p, "&2&lError &8- &cYou do not have any pending requests.");
             requests.remove(p.getUniqueId());
             return;
         }
 
-        ElytraChat.sendMessage(p, "&2&lTeleport &8- &aRequest denied.");
-        ElytraChat.sendMessage(t, "&2&lTeleport &8- &aRequest denied.");
+        ChatUtils.chat(p, "&2&lTeleport &8- &aRequest denied.");
+        ChatUtils.chat(t, "&2&lTeleport &8- &aRequest denied.");
         requests.remove(p.getUniqueId());
     }
 }

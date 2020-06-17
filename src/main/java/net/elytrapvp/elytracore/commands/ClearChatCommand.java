@@ -1,7 +1,7 @@
 package net.elytrapvp.elytracore.commands;
 
-import net.elytrapvp.elytracore.chat.ElytraChat;
-import net.elytrapvp.elytracore.chat.Message;
+
+import net.elytrapvp.elytralibrary.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +17,7 @@ public class ClearChatCommand implements CommandExecutor
         // Exit if not a player.
         if(!(sender instanceof Player))
         {
-            sender.sendMessage(Message.notAPlayer());
+            ChatUtils.chat(sender, "&2&lError &8- &cOnly players can use that command.");
             return true;
         }
 
@@ -42,7 +42,7 @@ public class ClearChatCommand implements CommandExecutor
         // Exit if no permissions.
         if(!p.hasPermission("ep.clearchat"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError 78- &cYou do not have access to that command.");
             return;
         }
 
@@ -51,7 +51,7 @@ public class ClearChatCommand implements CommandExecutor
             playerClearChat(pl);
         }
 
-        ElytraChat.sendMessage(p, "&2&lChat &8- &aChat has been cleared.");
+        ChatUtils.chat(p, "&2&lChat &8- &aChat has been cleared.");
     }
 
     private void playerClearChat(Player p)

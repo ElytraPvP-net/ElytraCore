@@ -1,6 +1,6 @@
 package net.elytrapvp.elytracore.commands;
 
-import net.elytrapvp.elytracore.chat.Message;
+import net.elytrapvp.elytralibrary.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +16,7 @@ public class InvSeeCommand implements CommandExecutor
         // Exit if sender is not a player.
         if(!(sender instanceof Player))
         {
-            sender.sendMessage(Message.notAPlayer());
+            ChatUtils.chat(sender, "&2&lError &8- &cOnly players can use that command.");
             return true;
         }
 
@@ -46,14 +46,14 @@ public class InvSeeCommand implements CommandExecutor
         // Exit if no permission.
         if(!p.hasPermission("ep.ecsee"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError &8- You do not have access to that command.");
             return;
         }
 
         // Exit if no arguments.
         if(args.length == 0)
         {
-            p.sendMessage(Message.usage("/ecsee [player]"));
+            ChatUtils.chat(p, "&2&lUsage 78- &c/ecsee [player]");
             return;
         }
 
@@ -62,7 +62,7 @@ public class InvSeeCommand implements CommandExecutor
         // Exit if player is not online.
         if(t == null)
         {
-            p.sendMessage(Message.notOnline());
+            ChatUtils.chat(p, "&2&lError &8- &cThat player is not online.");
             return;
         }
 
@@ -80,14 +80,14 @@ public class InvSeeCommand implements CommandExecutor
         // Exit if no permission.
         if(!p.hasPermission("ep.invsee"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError &8- You do not have access to that command.");
             return;
         }
 
         // Exit if no arguments.
         if(args.length == 0)
         {
-            p.sendMessage(Message.usage("/invsee [player]"));
+            ChatUtils.chat(p, "&2&lUsage 78- &c/invsee [player]");
             return;
         }
 
@@ -96,7 +96,7 @@ public class InvSeeCommand implements CommandExecutor
         // Exit if player is not online.
         if(t == null)
         {
-            p.sendMessage(Message.notOnline());
+            ChatUtils.chat(p, "&2&lError &8- &cThat player is not online.");
             return;
         }
 

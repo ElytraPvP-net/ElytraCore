@@ -1,7 +1,6 @@
 package net.elytrapvp.elytracore.commands;
 
-import net.elytrapvp.elytracore.chat.ElytraChat;
-import net.elytrapvp.elytracore.chat.Message;
+import net.elytrapvp.elytralibrary.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,7 +21,7 @@ public class AFKCommand implements CommandExecutor
         // Exit if sender is not a player.
         if(!(sender instanceof Player))
         {
-            sender.sendMessage(Message.noPermission());
+            ChatUtils.chat(sender, "&2&lError 78- &cYou must be a player to use that command.");
             return true;
         }
 
@@ -31,18 +30,18 @@ public class AFKCommand implements CommandExecutor
         // Exit if no permission.
         if(!p.hasPermission("ep.afk"))
         {
-            p.sendMessage(Message.noPermission());
+            ChatUtils.chat(p, "&2&lError 78- &cYou do not have access to that command.");
             return false;
         }
 
         if(afkPlayers.contains(p.getUniqueId()))
         {
-            Bukkit.broadcastMessage(Message.translate("&2&l* &f" + p.getDisplayName() + " &ais no longer afk"));
+            Bukkit.broadcastMessage(ChatUtils.translate("&2&l* &f" + p.getDisplayName() + " &ais no longer afk"));
             afkPlayers.remove(p.getUniqueId());
         }
         else
         {
-            Bukkit.broadcastMessage(Message.translate("&2&l* &f" + p.getDisplayName() + " &ais now afk"));
+            Bukkit.broadcastMessage(ChatUtils.translate("&2&l* &f" + p.getDisplayName() + " &ais now afk"));
             afkPlayers.add(p.getUniqueId());
         }
 

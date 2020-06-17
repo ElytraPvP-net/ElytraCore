@@ -3,7 +3,6 @@ package net.elytrapvp.elytracore;
 import net.elytrapvp.elytracore.commands.*;
 import net.elytrapvp.elytracore.listeners.PlayerJoinListener;
 import net.elytrapvp.elytracore.listeners.PlayerQuitListener;
-import net.elytrapvp.elytracore.regions.Region;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 

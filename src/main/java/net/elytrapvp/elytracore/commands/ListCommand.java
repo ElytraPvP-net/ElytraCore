@@ -1,7 +1,6 @@
 package net.elytrapvp.elytracore.commands;
 
-import net.elytrapvp.elytracore.chat.ElytraChat;
-import net.elytrapvp.elytracore.chat.Message;
+import net.elytrapvp.elytralibrary.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +16,7 @@ public class ListCommand implements CommandExecutor
         // Exit if sender has no permission.
         if(!(sender.hasPermission("ep.list")))
         {
-            sender.sendMessage(Message.noPermission());
+            ChatUtils.chat(sender, "&2&lError &8- &cYou do not have access to that command.");
             return true;
         }
 
@@ -28,11 +27,11 @@ public class ListCommand implements CommandExecutor
             online += p.getDisplayName() + ", ";
         }
 
-        sender.sendMessage(Message.divder());
-        ElytraChat.centeredChat(sender, "&2&lOnline Players");
-        ElytraChat.sendMessage(sender, "  &aThere are currently &f" + Bukkit.getOnlinePlayers().size() + " &aplayers online.");
+        ChatUtils.chat(sender, "&2&l]&8&m---------------------------------------------------&2&l[");
+        ChatUtils.centeredChat(sender, "&2&lOnline Players");
+        ChatUtils.chat(sender, "  &aThere are currently &f" + Bukkit.getOnlinePlayers().size() + " &aplayers online.");
         sender.sendMessage(online.substring(0, online.length() - 2));
-        sender.sendMessage(Message.divder());
+        ChatUtils.chat(sender, "&2&l]&8&m---------------------------------------------------&2&l[");
         return true;
     }
 

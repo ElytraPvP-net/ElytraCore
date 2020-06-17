@@ -1,8 +1,7 @@
 package net.elytrapvp.elytracore.commands;
 
 import net.elytrapvp.elytracore.ElytraCore;
-import net.elytrapvp.elytracore.chat.ElytraChat;
-import net.elytrapvp.elytracore.chat.Message;
+import net.elytrapvp.elytralibrary.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,13 +20,13 @@ public class VanishCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         // Exit if no permission.
         if (!sender.hasPermission("ep.vanish")) {
-            sender.sendMessage(Message.noPermission());
+            ChatUtils.chat(sender, "&2&lError &8- &cYou do not have access to that command.");
             return true;
         }
 
         // Exit if not a player.
         if (!(sender instanceof Player)) {
-            sender.sendMessage(Message.notAPlayer());
+            ChatUtils.chat(sender, "&2&lError &8- &cOnly players can use that command.");
             return true;
         }
 
@@ -36,7 +35,7 @@ public class VanishCommand implements CommandExecutor {
         if(getVanished().contains(p.getUniqueId()))
         {
             getVanished().remove(p.getUniqueId());
-            ElytraChat.sendMessage(p, "&2&lVanish &8- &aYou are no longer hidden from other players.");
+            ChatUtils.chat(p, "&2&lVanish &8- &aYou are no longer hidden from other players.");
 
             for(Player pl : Bukkit.getOnlinePlayers())
             {
@@ -46,7 +45,7 @@ public class VanishCommand implements CommandExecutor {
         else
         {
             getVanished().add(p.getUniqueId());
-            ElytraChat.sendMessage(p, "&2&lVanish &8- &aYou are now hidden from other players.");
+            ChatUtils.chat(p, "&2&lVanish &8- &aYou are now hidden from other players.");
 
             for(Player pl : Bukkit.getOnlinePlayers())
             {

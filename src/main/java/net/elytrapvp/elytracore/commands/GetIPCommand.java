@@ -1,7 +1,6 @@
 package net.elytrapvp.elytracore.commands;
 
-import net.elytrapvp.elytracore.chat.ElytraChat;
-import net.elytrapvp.elytracore.chat.Message;
+import net.elytrapvp.elytralibrary.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,14 +16,14 @@ public class GetIPCommand implements CommandExecutor
         // Exit if no permission.
         if(!sender.hasPermission("ep.getip"))
         {
-            sender.sendMessage(Message.noPermission());
+            ChatUtils.chat(sender, "&2&lError &8- &cYou do not have access to that command.");
             return true;
         }
 
         // Exit if no args.
         if(args.length == 0)
         {
-            sender.sendMessage(Message.usage("/getip [player]"));
+            ChatUtils.chat(sender,"&2&lUsage &8- &c/getip [player]");
             return true;
         }
 
@@ -33,12 +32,12 @@ public class GetIPCommand implements CommandExecutor
         // Exit if player is not online.
         if(p == null)
         {
-            sender.sendMessage(Message.notOnline());
+            ChatUtils.chat(sender, "&2&lError &8- &cThat player is not online.");
             return true;
         }
 
         String ip = p.getAddress().toString();
-        ElytraChat.sendMessage(sender, "&2&lIP &8- &aThe ip of &f" + p.getName() + " &ais &f" + ip + "&a.");
+        ChatUtils.chat(sender, "&2&lIP &8- &aThe ip of &f" + p.getName() + " &ais &f" + ip + "&a.");
 
         return true;
     }
