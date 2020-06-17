@@ -64,6 +64,9 @@ commands:
   pcc:
     usage: /<command>
     description: Clear your personal chat.
+  rename:
+    usage: /<command>
+    description: Rename an item
   tpa:
     usage: /<command>
     description: Request to teleport to someone.
