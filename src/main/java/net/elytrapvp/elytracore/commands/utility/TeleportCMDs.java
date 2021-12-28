@@ -27,7 +27,7 @@ public class TeleportCMDs implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         // Exit if sender is not a player.
         if(!(sender instanceof Player)) {
-            ChatUtils.chat(sender, "&c&l(&7!&c&l) &cOnly players can use that command.");
+            ChatUtils.chat(sender, "&c&lError &8» &cOnly players can use that command.");
             return true;
         }
 
@@ -53,20 +53,20 @@ public class TeleportCMDs implements CommandExecutor {
     private void tpa(Player p, String[] args) {
         // Exit if no permission.
         if(!p.hasPermission("tpa")) {
-            ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
+            ChatUtils.chat(p, "&c&lError &8» &cYou do not have access to that command.");
             return;
         }
 
         // Exit if no arguments.
         if(args.length == 0) {
-            ChatUtils.chat(p, "&2&lUsage &8- &c/tpa [player]");
+            ChatUtils.chat(p, "&c&lUsage &8» &c/tpa [player]");
             return;
         }
 
         Player t = Bukkit.getPlayer(args[0]);
         // Exit if target is not online
         if(t == null) {
-            ChatUtils.chat(p, "&2&lError &8- &cThat player is not online.");
+            ChatUtils.chat(p, "&c&lError &8» &cThat player is not online.");
             return;
         }
 
@@ -86,12 +86,12 @@ public class TeleportCMDs implements CommandExecutor {
             if(requests.containsKey(t.getUniqueId()) && requests.get(t.getUniqueId()) == p.getUniqueId())
             {
                 requests.remove(t.getUniqueId());
-                ChatUtils.chat(p, "&2&lTeleport &8- &aRequest timed out.");
-                ChatUtils.chat(t, "&2&lTeleport &8- &aRequest timed out.");
+                ChatUtils.chat(p, "&a&lTeleport &8» &aRequest timed out.");
+                ChatUtils.chat(t, "&a&lTeleport &8» &aRequest timed out.");
             }
         }, 1200);
 
-        ChatUtils.chat(p, "&2&lTeleport &8- &aTeleport request sent.");
+        ChatUtils.chat(p, "&a&lTeleport &8» &aTeleport request sent.");
 
 
     }
@@ -99,13 +99,13 @@ public class TeleportCMDs implements CommandExecutor {
     private void tpaccept(Player p, String[] args) {
         // Exit if no permission.
         if(!p.hasPermission("tpaccept")) {
-            ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
+            ChatUtils.chat(p, "&c&lError &8» &cYou do not have access to that command.");
             return;
         }
 
         // Exit if no requests
         if(!requests.containsKey(p.getUniqueId())) {
-            ChatUtils.chat(p, "&2&lError &8- &cYou do not have any pending requests.");
+            ChatUtils.chat(p, "&c&lError &8» &cYou do not have any pending requests.");
             return;
         }
 
@@ -113,13 +113,13 @@ public class TeleportCMDs implements CommandExecutor {
 
         // Exit if player is not online.
         if(t == null) {
-            ChatUtils.chat(p, "&2&lError &8- &cYou do not have any pending requests.");
+            ChatUtils.chat(p, "&c&lError &8» &cYou do not have any pending requests.");
             requests.remove(p.getUniqueId());
             return;
         }
 
-        ChatUtils.chat(p, "&2&lTeleport &8- &aTeleport request accepted.");
-        ChatUtils.chat(t, "&2&lTeleport &8- &aRequest accepted. Teleporting in &f5 &aseconds.");
+        ChatUtils.chat(p, "&a&lTeleport &8» &aTeleport request accepted.");
+        ChatUtils.chat(t, "&a&lTeleport &8» &aRequest accepted. Teleporting in &f5 &aseconds.");
         requests.remove(t.getUniqueId());
         BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
         scheduler.scheduleSyncDelayedTask(plugin, () -> {
@@ -130,13 +130,13 @@ public class TeleportCMDs implements CommandExecutor {
     private void tpdeny(Player p, String[] args) {
         // Exit if no permission.
         if(!p.hasPermission("tpdeny")) {
-            ChatUtils.chat(p, "&2&lError &8- &cYou do not have access to that command.");
+            ChatUtils.chat(p, "&c&lError &8» &cYou do not have access to that command.");
             return;
         }
 
         // Exit if no requests
         if(!requests.containsKey(p.getUniqueId())) {
-            ChatUtils.chat(p, "&2&lError &8- &cYou do not have any pending requests.");
+            ChatUtils.chat(p, "&c&lError &8» &cYou do not have any pending requests.");
             return;
         }
 
@@ -144,13 +144,13 @@ public class TeleportCMDs implements CommandExecutor {
 
         // Exit if player is not online.
         if(t == null) {
-            ChatUtils.chat(p, "&2&lError &8- &cYou do not have any pending requests.");
+            ChatUtils.chat(p, "&c&lError &8» &cYou do not have any pending requests.");
             requests.remove(p.getUniqueId());
             return;
         }
 
-        ChatUtils.chat(p, "&2&lTeleport &8- &aRequest denied.");
-        ChatUtils.chat(t, "&2&lTeleport &8- &aRequest denied.");
+        ChatUtils.chat(p, "&a&lTeleport &8» &aRequest denied.");
+        ChatUtils.chat(t, "&a&lTeleport &8» &aRequest denied.");
         requests.remove(p.getUniqueId());
     }
 }

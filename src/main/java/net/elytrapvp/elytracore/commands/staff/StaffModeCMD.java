@@ -27,11 +27,11 @@ public class StaffModeCMD extends AbstractCommand {
             StaffModePlayer s = StaffModePlayer.getPlayers().get(p.getUniqueId());
             s.delete();
 
-            ChatUtils.chat(p, "&a&l(&7!&a&l) &aYou are no longer in staff mode.");
+            ChatUtils.chat(p, "&a&lStaff &8» &aYou are no longer in staff mode.");
         }
         else {
             new StaffModePlayer(p.getUniqueId());
-            ChatUtils.chat(p, "&a&l(&7!&a&l) &aYou are now in staff mode.");
+            ChatUtils.chat(p, "&aStaff &8» &aYou are now in staff mode.");
 
             p.getInventory().clear();
         }

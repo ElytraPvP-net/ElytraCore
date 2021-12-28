@@ -26,12 +26,12 @@ public class FlyCMD extends AbstractCommand {
         Player p = (Player) sender;
 
         if(p.getAllowFlight()) {
-            ChatUtils.chat(p, "&2&lFly &8- &aFlight has been disabled.");
+            ChatUtils.chat(p, "&a&lFly &8» &aFlight has been disabled.");
             p.setAllowFlight(false);
             p.setFlying(false);
         }
         else {
-            ChatUtils.chat(p, "&2&lFly &8- &aFlight has been enabled.");
+            ChatUtils.chat(p, "&a&lFly &8» &aFlight has been enabled.");
             p.setAllowFlight(true);
             p.setFlying(true);
         }

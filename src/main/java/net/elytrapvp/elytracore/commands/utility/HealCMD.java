@@ -25,6 +25,6 @@ public class HealCMD extends AbstractCommand {
     public void execute(CommandSender sender, String[] args) {
         Player p = (Player) sender;
         p.setHealth(p.getMaxHealth());
-        ChatUtils.chat(p, "&2&lHeal &8- &aYou have been healed.");
+        ChatUtils.chat(p, "&a&lHeal &8» &aYou have been healed.");
     }
 }

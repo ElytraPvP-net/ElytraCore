@@ -26,6 +26,6 @@ public class FeedCMD extends AbstractCommand {
     public void execute(CommandSender sender, String[] args) {
         Player p = (Player) sender;
         p.setFoodLevel(20);
-        ChatUtils.chat(p, "&2&lFeed &8- &aYou have been fed.");
+        ChatUtils.chat(p, "&a&lFeed &8» &aYou have been fed.");
     }
 }

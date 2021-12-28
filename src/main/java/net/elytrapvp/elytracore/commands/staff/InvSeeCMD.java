@@ -25,7 +25,7 @@ public class InvSeeCMD extends AbstractCommand {
 
         // Exit if no arguments.
         if (args.length == 0) {
-            ChatUtils.chat(p, "&2&lUsage 78- &c/invsee [player]");
+            ChatUtils.chat(p, "&c&lUsage &8» &c/invsee [player]");
             return;
         }
 
@@ -33,7 +33,7 @@ public class InvSeeCMD extends AbstractCommand {
 
         // Exit if player is not online.
         if (t == null) {
-            ChatUtils.chat(p, "&c&l(&7!&c&l) &cThat player is not online.");
+            ChatUtils.chat(p, "&c&lError &8» &cThat player is not online.");
             return;
         }
 

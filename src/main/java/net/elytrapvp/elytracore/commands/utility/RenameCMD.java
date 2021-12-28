@@ -30,7 +30,7 @@ public class RenameCMD extends AbstractCommand {
 
         // Exit if no arguments
         if(args.length == 0) {
-            ChatUtils.chat(p,"&2&lUsage &8- &c/rename [name]");
+            ChatUtils.chat(p,"&c&lUsage &8» &c/rename [name]");
             return;
         }
 
@@ -42,6 +42,6 @@ public class RenameCMD extends AbstractCommand {
                 .build();
         p.setItemInHand(renamed);
 
-        ChatUtils.chat(p, "&2&lRename &8- &aItem's name set to &f" + name + "&a.");
+        ChatUtils.chat(p, "&a&lRename &8» &aItem's name set to &f" + name + "&a.");
     }
 }

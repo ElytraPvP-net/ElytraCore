@@ -26,7 +26,7 @@ public class BroadcastCMD extends AbstractCommand {
      */
     public void execute(CommandSender sender, String[] args) {
         if(args.length == 0) {
-            ChatUtils.chat(sender, "&c&l(&7!&c&l) &cUsage: /bc [message]");
+            ChatUtils.chat(sender, "&c&lUsage &8» /bc [message]");
             return;
         }
 
