@@ -1,19 +1,21 @@
-package net.elytrapvp.elytracore.commands;
+package net.elytrapvp.elytracore.commands.utility;
 
+import net.elytrapvp.elytracore.commands.AbstractCommand;
 import net.elytrapvp.elytrapvp.chat.ChatUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
- * Heals the player.
+ * Feeds the player.
  */
-public class HealCMD extends AbstractCommand {
+public class FeedCMD extends AbstractCommand {
 
     /**
      * Registers the command.
      */
-    public HealCMD() {
-        super("heal", "hea", false);
+    public FeedCMD() {
+        super("feed", "feed", false);
+
     }
 
     /**
@@ -23,7 +25,7 @@ public class HealCMD extends AbstractCommand {
      */
     public void execute(CommandSender sender, String[] args) {
         Player p = (Player) sender;
-        p.setHealth(p.getMaxHealth());
-        ChatUtils.chat(p, "&2&lHeal &8- &aYou have been healed.");
+        p.setFoodLevel(20);
+        ChatUtils.chat(p, "&2&lFeed &8- &aYou have been fed.");
     }
 }

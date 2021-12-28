@@ -1,4 +1,4 @@
-package net.elytrapvp.elytracore.commands;
+package net.elytrapvp.elytracore.commands.utility;
 
 import net.elytrapvp.elytrapvp.chat.ChatUtils;
 import org.bukkit.GameMode;

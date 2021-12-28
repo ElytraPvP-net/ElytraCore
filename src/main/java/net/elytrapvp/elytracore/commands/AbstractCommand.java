@@ -1,5 +1,9 @@
 package net.elytrapvp.elytracore.commands;
 
+import net.elytrapvp.elytracore.commands.staff.FlyCMD;
+import net.elytrapvp.elytracore.commands.staff.InvSeeCMD;
+import net.elytrapvp.elytracore.commands.staff.StaffModeCMD;
+import net.elytrapvp.elytracore.commands.utility.*;
 import net.elytrapvp.elytrapvp.chat.ChatUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

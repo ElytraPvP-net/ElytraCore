@@ -1,5 +1,6 @@
-package net.elytrapvp.elytracore.commands;
+package net.elytrapvp.elytracore.commands.utility;
 
+import net.elytrapvp.elytracore.commands.AbstractCommand;
 import net.elytrapvp.elytrapvp.chat.ChatUtils;
 import net.elytrapvp.elytrapvp.items.ItemBuilder;
 import org.apache.commons.lang.StringUtils;

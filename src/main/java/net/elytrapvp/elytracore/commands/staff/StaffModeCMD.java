@@ -1,5 +1,6 @@
-package net.elytrapvp.elytracore.commands;
+package net.elytrapvp.elytracore.commands.staff;
 
+import net.elytrapvp.elytracore.commands.AbstractCommand;
 import net.elytrapvp.elytracore.objects.StaffModePlayer;
 import net.elytrapvp.elytrapvp.chat.ChatUtils;
 import org.bukkit.command.CommandSender;
