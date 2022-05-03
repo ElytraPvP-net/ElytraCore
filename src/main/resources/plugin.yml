@@ -3,33 +3,71 @@ version: 1.0
 main: net.elytrapvp.elytracore.ElytraCore
 api-version: 1.16
 website: http://www.elytrapvp.met
-
 depend: [PlaceholderAPI]
 
+permission-message: &noperms "§c§lError §8» §cYou do not have access to that command."
+
+ #####
+#     #  ####  #    # #    #   ##   #    # #####   ####
+#       #    # ##  ## ##  ##  #  #  ##   # #    # #
+#       #    # # ## # # ## # #    # # #  # #    #  ####
+#       #    # #    # #    # ###### #  # # #    #      #
+#     # #    # #    # #    # #    # #   ## #    # #    #
+ #####   ####  #    # #    # #    # #    # #####   ####
 commands:
+  alts:
+    permission: elytracore.alts
+    permission-message: *noperms
+  broadcast:
+    aliases: [ bc,announce,a ]
+    permission: elytracore.broadcast
+    permission-message: *noperms
   chatlog:
     aliases: [cl]
+    permission: elytracore.chatlog
+    permission-message: *noperms
   clearchat:
     aliases: [cc]
-  personalclearchat:
-    aliases: [playerclearchat,pcc]
-
-  broadcast:
-    aliases: [bc,announce,a]
+    permission: elytracore.clearchat
+    permission-message: *noperms
+  ecsee:
+    permission: elytracore.ecsee
+    permission-message: *noperms
   enderchest:
     aliases: [ec]
+    permission: elytracore.enderchest
+    permission-message: *noperms
   feed:
+    permission: elytracore.feed
+    permission-message: *noperms
+  fly:
+    permission: elytracore.fly
+    permission-message: *noperms
   heal:
+    permission: elytracore.heal
+    permission-message: *noperms
+  invisible:
+    aliases: [ invis ]
+    permission: elytracore.invisible
+    permission-message: *noperms
+  invsee:
+    permission: elytracore.invsee
+    permission-message: *noperms
+  names:
+    permission: elytracore.names
+    permission-message: *noperms
+  personalclearchat:
+    aliases: [playerclearchat,pcc]
   rename:
+    permission: elytracore.rename
+    permission-message: *noperms
   speed:
+    permission: elytracore.speed
+    permission-message: *noperms
+  uuid:
+    permission: elytracore.uuid
+    permission-message: *noperms
   workbench:
     aliases: [wb,craft]
-
-  alts:
-  ecsee:
-  fly:
-  invisibiliy:
-    aliases: [invis]
-  invsee:
-  names:
-  uuid:
+    permission: elytracore.workbench
+    permission-message: *noperms
