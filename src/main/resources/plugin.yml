@@ -23,6 +23,8 @@ commands:
   alts:
   ecsee:
   fly:
+  invisibiliy:
+    aliases: [invis]
   invsee:
   names:
   uuid:

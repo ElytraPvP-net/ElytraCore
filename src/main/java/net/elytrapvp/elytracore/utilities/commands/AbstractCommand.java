@@ -47,6 +47,7 @@ public abstract class AbstractCommand implements CommandExecutor {
         new AltsCMD(pl);
         new ECSeeCMD();
         new FlyCMD();
+        new InvisibleCMD();
         new InvSeeCMD();
         new NamesCMD(pl);
         new UUIDCMD();
