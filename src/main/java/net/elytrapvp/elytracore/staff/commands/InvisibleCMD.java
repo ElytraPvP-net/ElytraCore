@@ -28,7 +28,7 @@ public class InvisibleCMD extends AbstractCommand {
     public void execute(CommandSender sender, String[] args) {
         Player player = (Player) sender;
 
-        if(isInvisible(player)) {
+        if(player.hasPotionEffect(PotionEffectType.INVISIBILITY)) {
             player.removePotionEffect(PotionEffectType.INVISIBILITY);
             ChatUtils.chat(player, "&aYou are no longer invisible.");
         }
@@ -37,20 +37,5 @@ public class InvisibleCMD extends AbstractCommand {
             player.addPotionEffect(invisible);
             ChatUtils.chat(player, "&aYou are now invisible.");
         }
-    }
-
-    /**
-     * Check if a player is already invisible.
-     * @param player Player to see if they're invisible.
-     * @return Whether they are invisible.
-     */
-    private boolean isInvisible(Player player) {
-        for(PotionEffect effect : player.getActivePotionEffects()) {
-            if(effect.getType() == PotionEffectType.INVISIBILITY) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }
