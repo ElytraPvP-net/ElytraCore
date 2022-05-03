@@ -4,6 +4,7 @@ import net.elytrapvp.elytracore.ElytraCore;
 import net.elytrapvp.elytracore.utilities.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -14,6 +15,7 @@ public class PlayerQuitListener implements Listener {
         this.plugin = plugin;
     }
 
+    @EventHandler
     public void onQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
         plugin.getFilterManager().removePlayer(player);

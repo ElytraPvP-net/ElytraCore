@@ -75,12 +75,17 @@ public class PlayerJoinListener implements Listener {
 
                 if(!plugin.getStaffPlayerManager().getPlayer(player).isVanished()) {
                     Bukkit.broadcastMessage(ChatUtils.translate("&8[&a+&8] &a" + player.getName()));
-
+                }
+                else {
                     for(Player pl : Bukkit.getOnlinePlayers()) {
+                        if(pl.equals(player)) {
+                            continue;
+                        }
+
                         pl.hidePlayer(plugin, player);
                     }
                 }
-            }, 10);
+            }, 15);
         }
         else {
             Bukkit.broadcastMessage(ChatUtils.translate("&8[&a+&8] &a" + player.getName()));

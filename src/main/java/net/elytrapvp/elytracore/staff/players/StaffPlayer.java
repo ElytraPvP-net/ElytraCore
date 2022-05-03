@@ -37,9 +37,11 @@ public class StaffPlayer {
                     vanished = results.getBoolean(3);
 
                     if(vanished) {
-                        for(Player pl : Bukkit.getOnlinePlayers()) {
-                            pl.hidePlayer(plugin, player);
-                        }
+                        Bukkit.getScheduler().runTask(plugin, () -> {
+                            for(Player pl : Bukkit.getOnlinePlayers()) {
+                                pl.hidePlayer(plugin, player);
+                            }
+                        });
                     }
                 }
                 else {
@@ -107,7 +109,20 @@ public class StaffPlayer {
 
         if(!vanished) {
             for(Player pl : Bukkit.getOnlinePlayers()) {
+                if(pl.equals(player)) {
+                    continue;
+                }
+
                 pl.showPlayer(plugin, player);
+            }
+        }
+        else {
+            for(Player pl : Bukkit.getOnlinePlayers()) {
+                if(pl.equals(player)) {
+                    continue;
+                }
+
+                pl.hidePlayer(plugin, player);
             }
         }
 
