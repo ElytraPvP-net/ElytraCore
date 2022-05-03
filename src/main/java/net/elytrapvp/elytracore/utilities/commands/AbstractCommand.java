@@ -52,6 +52,7 @@ public abstract class AbstractCommand implements CommandExecutor {
         new InvSeeCMD();
         new NamesCMD(pl);
         new UUIDCMD();
+        new VanishCMD(pl);
 
         // Misc
         new BroadcastCMD();

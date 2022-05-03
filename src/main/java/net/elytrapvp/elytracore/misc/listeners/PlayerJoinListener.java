@@ -1,6 +1,7 @@
 package net.elytrapvp.elytracore.misc.listeners;
 
 import net.elytrapvp.elytracore.ElytraCore;
+import net.elytrapvp.elytracore.staff.players.StaffPlayer;
 import net.elytrapvp.elytracore.utilities.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -74,11 +75,20 @@ public class PlayerJoinListener implements Listener {
 
                 if(!plugin.getStaffPlayerManager().getPlayer(player).isVanished()) {
                     Bukkit.broadcastMessage(ChatUtils.translate("&8[&a+&8] &a" + player.getName()));
+
+                    for(Player pl : Bukkit.getOnlinePlayers()) {
+                        pl.hidePlayer(plugin, player);
+                    }
                 }
             }, 10);
         }
         else {
             Bukkit.broadcastMessage(ChatUtils.translate("&8[&a+&8] &a" + player.getName()));
+        }
+
+        // Hide vanished players.
+        for(StaffPlayer staff : plugin.getStaffPlayerManager().getVanishEnabled()) {
+            player.hidePlayer(plugin, staff.getPlayer());
         }
     }
 
