@@ -30,6 +30,10 @@ commands:
     aliases: [cc]
     permission: elytracore.clearchat
     permission-message: *noperms
+  commandspy:
+    aliases: [cmdspy,cspy]
+    permission: elytracore.commandspy
+    permission-message: *noperms
   ecsee:
     permission: elytracore.ecsee
     permission-message: *noperms

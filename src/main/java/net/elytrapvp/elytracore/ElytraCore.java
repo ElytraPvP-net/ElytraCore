@@ -4,6 +4,7 @@ import net.elytrapvp.elytracore.chat.filter.FilterManager;
 import net.elytrapvp.elytracore.chat.listeners.AsyncPlayerChatListener;
 import net.elytrapvp.elytracore.chat.listeners.PlayerQuitListener;
 import net.elytrapvp.elytracore.misc.listeners.PlayerJoinListener;
+import net.elytrapvp.elytracore.staff.listeners.PlayerCommandPreprocessListener;
 import net.elytrapvp.elytracore.staff.players.StaffPlayerManager;
 import net.elytrapvp.elytracore.utilities.commands.AbstractCommand;
 import net.elytrapvp.elytracore.utilities.gui.GUIListeners;
@@ -29,6 +30,7 @@ public class ElytraCore extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new GUIListeners(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PlayerQuitListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerCommandPreprocessListener(this), this);
 
         filterManager = new FilterManager();
         staffPlayerManager = new StaffPlayerManager(this);
