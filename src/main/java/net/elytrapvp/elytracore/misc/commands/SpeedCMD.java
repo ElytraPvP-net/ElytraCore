@@ -32,8 +32,8 @@ public class SpeedCMD extends AbstractCommand {
             int speed = Integer.parseInt(args[0]);
 
             Player player = (Player) sender;
-            player.setFlySpeed(speed);
-            player.setWalkSpeed(speed);
+            player.setFlySpeed((float) (speed/10.0));
+            player.setWalkSpeed((float) (speed/10.0));
             ChatUtils.chat(sender, "&aYour speed has been set to &f" + speed + "&a.");
         }
         catch (NumberFormatException exception) {
