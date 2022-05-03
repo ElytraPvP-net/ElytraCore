@@ -1,37 +1,57 @@
 package net.elytrapvp.elytracore;
 
-import net.elytrapvp.SettingsManager;
-import net.elytrapvp.elytracore.commands.AbstractCommand;
-import net.elytrapvp.elytracore.listener.FoodLevelChangeListener;
-import net.elytrapvp.elytracore.listener.PlayerJoinListener;
-import net.elytrapvp.elytracore.listener.PlayerQuitListener;
-import net.elytrapvp.elytrapvp.gui.GUIListeners;
-import net.elytrapvp.elytrapvp.scoreboard.ScoreboardUpdate;
+import net.elytrapvp.elytracore.chat.filter.FilterManager;
+import net.elytrapvp.elytracore.chat.listeners.AsyncPlayerChatListener;
+import net.elytrapvp.elytracore.chat.listeners.PlayerQuitListener;
+import net.elytrapvp.elytracore.utilities.commands.AbstractCommand;
+import net.elytrapvp.elytracore.utilities.gui.GUIListeners;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ElytraCore extends JavaPlugin {
-    private final SettingsManager settings = SettingsManager.getInstance();
-    private static ElytraCore plugin;
+    private FilterManager filterManager;
+    private MySQL mySQL;
+    private SettingsManager settingsManager;
 
+    @Override
     public void onEnable() {
-        plugin = this;
+        settingsManager = new SettingsManager(this);
 
-        settings.setup(this);
+        mySQL = new MySQL(this);
+        mySQL.openConnection();
+
         AbstractCommand.registerCommands(this);
 
-        new ScoreboardUpdate().runTaskTimer(this, 20L, 20L);
+        Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new GUIListeners(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerQuitListener(this), this);
 
-        getServer().getPluginManager().registerEvents(new GUIListeners(), this);
-        getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
-        getServer().getPluginManager().registerEvents(new FoodLevelChangeListener(), this);
+        filterManager = new FilterManager();
+
+        new ElytraCoreAPI(this);
     }
 
-    public void onDisable() {
-        plugin = null;
+    /**
+     * Get the Filter Manager, which gives us access to chat filters.
+     * @return Filter Manager.
+     */
+    public FilterManager getFilterManager() {
+        return filterManager;
     }
 
-    public static ElytraCore getPlugin() {
-        return plugin;
+    /**
+     * Be able to connect to MySQL.
+     * @return MySQL.
+     */
+    public MySQL getMySQL() {
+        return mySQL;
+    }
+
+    /**
+     * Get the Settings Manager, which gives us access to the plugin Configuration.
+     * @return Settings Manager.
+     */
+    public SettingsManager getSettingsManager() {
+        return settingsManager;
     }
 }

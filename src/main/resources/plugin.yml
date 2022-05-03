@@ -1,88 +1,26 @@
 name: ElytraCore
-version: ${project.version}
+version: 1.0
 main: net.elytrapvp.elytracore.ElytraCore
 api-version: 1.16
 website: http://www.elytrapvp.met
 
-depend:
-  - PlaceholderAPI
-
 commands:
-  afk:
-    usage: /<command>
-    description: Set yourself as afk.
-  broadcast:
-    usage: /<command>
-    description: Broadcast a message to everyone online.
-    aliases: [bc]
+  chatlog:
+    aliases: [cl]
   clearchat:
-    usage: /<command>
-    description: Clear the chat
     aliases: [cc]
-  enderchest:
-    usage: /<command>
-    description: Open your enderchest.
-    aliases: [ ec ]
+  personalclearchat:
+    aliases: [playerclearchat,pcc]
+
+  broadcast:
+    aliases: [bc,announce,a]
   feed:
-    usage: /<command>
-    description: Feed yourself.
-  fly:
-    usage: /<command> [player]
-    description: Enable or disable fly.
-    aliases: [f]
-  gamemode:
-    usage: /<command>
-    description: Change gamemode
-    aliases: [gm]
-  gamemode0:
-    usage: /<command>
-    description: Change gamemode
-    aliases: [gm0, gms]
-  gamemode1:
-    usage: /<command>
-    description: Change gamemode
-    aliases: [gm1, gmc]
-  gamemode2:
-    usage: /<command>
-    description: Change gamemode
-    aliases: [gm2, gma]
-  gamemode3:
-    usage: /<command>
-    description: Change gamemode
-    aliases: [gm3, gmsp]
-  glow:
-    usage: /<command>
-    description: Add glowing effect to an item.
   heal:
-    usage: /<command>
-    description: Heal yourself
-  invsee:
-    usage: /<command> [player]
-    description: View a player's inventory.
-  list:
-    usage: /<command>
-    description: View online players.
-    aliases: [online, players]
-  pcc:
-    usage: /<command>
-    description: Clear your personal chat.
   rename:
-    usage: /<command>
-    description: Rename an item
-  staffmode:
-    usage: /<command>
-    description: Enter or exit staff mode.
-    aliases: [sm]
-  tpa:
-    usage: /<command>
-    description: Request to teleport to someone.
-  tpaccept:
-    usage: /<command>
-    description: Accept a teleport request.
-  tpdeny:
-    usage: /<command>
-    description: Deny a teleport request.
-  workbench:
-    usage: /<command>
-    description: Open a workbench inventory.
-    aliases: [wb]
+
+  alts:
+  ecsee:
+  fly:
+  invsee:
+  names:
+  uuid:
