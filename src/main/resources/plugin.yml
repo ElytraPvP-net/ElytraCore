@@ -63,6 +63,8 @@ commands:
   rename:
     permission: elytracore.rename
     permission-message: *noperms
+  rules:
+    description: Shows the server rules.
   speed:
     permission: elytracore.speed
     permission-message: *noperms

@@ -59,6 +59,7 @@ public abstract class AbstractCommand implements CommandExecutor {
         new HealCMD();
         new HelpCMD();
         new RenameCMD();
+        new RulesCMD();
         new SpeedCMD();
         new WorkbenchCMD();
     }
