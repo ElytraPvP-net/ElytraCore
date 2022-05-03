@@ -4,6 +4,8 @@ main: net.elytrapvp.elytracore.ElytraCore
 api-version: 1.16
 website: http://www.elytrapvp.met
 
+depend: [PlaceholderAPI]
+
 commands:
   chatlog:
     aliases: [cl]
