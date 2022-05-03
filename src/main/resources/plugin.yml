@@ -19,6 +19,8 @@ commands:
   feed:
   heal:
   rename:
+  workbench:
+    aliases: [wb,craft]
 
   alts:
   ecsee:
