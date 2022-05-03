@@ -57,6 +57,7 @@ public abstract class AbstractCommand implements CommandExecutor {
         new EnderchestCMD();
         new FeedCMD();
         new HealCMD();
+        new HelpCMD();
         new RenameCMD();
         new SpeedCMD();
         new WorkbenchCMD();

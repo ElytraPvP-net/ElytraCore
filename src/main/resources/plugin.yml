@@ -46,6 +46,8 @@ commands:
   heal:
     permission: elytracore.heal
     permission-message: *noperms
+  help:
+    aliases: [?,plugin,pl,version,ver,bukkit:?,bukkit:plugin,bukkit:pl,bukkit:version,bukkit:ver]
   invisible:
     aliases: [ invis ]
     permission: elytracore.invisible
