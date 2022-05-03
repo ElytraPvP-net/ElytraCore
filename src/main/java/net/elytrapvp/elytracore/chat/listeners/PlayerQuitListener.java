@@ -25,6 +25,8 @@ public class PlayerQuitListener implements Listener {
             if(!plugin.getStaffPlayerManager().getPlayer(player).isVanished()) {
                 Bukkit.broadcastMessage(ChatUtils.translate("&8[&c-&8] &c" + player.getName()));
             }
+
+            plugin.getStaffPlayerManager().removePlayer(player);
         }
         else {
             Bukkit.broadcastMessage(ChatUtils.translate("&8[&c-&8] &c" + player.getName()));
