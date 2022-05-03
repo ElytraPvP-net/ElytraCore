@@ -7,10 +7,12 @@ import net.elytrapvp.elytracore.utilities.gui.CustomGUI;
 import net.elytrapvp.elytracore.utilities.items.ItemBuilder;
 import net.elytrapvp.elytracore.utilities.items.SkullBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,10 +63,13 @@ public class ChatLogCMD extends AbstractCommand {
         public ChatLogGUI(String target, String uuid, int page) {
             super(54, "Chat Log - " + target);
 
+            /*
             int[] fillers = {0,1,2,3,4,5,6,7,8,45,46,47,49,51,52,53};
             for(int i : fillers) {
                 setItem(i, new ItemBuilder(Material.GRAY_STAINED_GLASS_PANE).setDisplayName(" ").build());
             }
+
+             */
 
             if(page == 1) {
                 ItemStack previous = new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg0ZjU5NzEzMWJiZTI1ZGMwNThhZjg4OGNiMjk4MzFmNzk1OTliYzY3Yzk1YzgwMjkyNWNlNGFmYmEzMzJmYyJ9fX0=")
