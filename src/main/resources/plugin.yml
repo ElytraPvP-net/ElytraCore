@@ -76,6 +76,7 @@ commands:
     permission: elytracore.uuid
     permission-message: *noperms
   vanish:
+    aliases: [v]
     permission: elytracore.vanish
     permission-message: *noperms
   workbench:
