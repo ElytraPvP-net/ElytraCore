@@ -1,6 +1,7 @@
 package net.elytrapvp.elytracore.misc.listeners;
 
 import net.elytrapvp.elytracore.ElytraCore;
+import net.elytrapvp.elytracore.utilities.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -25,6 +26,10 @@ public class PlayerJoinListener implements Listener {
         String uuid = player.getUniqueId().toString();
         String ip = player.getAddress().getHostString();
 
+        // Disables join message.
+        event.setJoinMessage(null);
+
+        // Logs player information.
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
                 PreparedStatement statement1 = plugin.getMySQL().getConnection().prepareStatement("SELECT * from player_info WHERE uuid = ?");
@@ -61,6 +66,20 @@ public class PlayerJoinListener implements Listener {
                 exception.printStackTrace();
             }
         });
+
+        // Checks if a player is a staff member.
+        if(player.hasPermission("elytracore.staff")) {
+            plugin.getStaffPlayerManager().addPlayer(player);
+            Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, () -> {
+
+                if(!plugin.getStaffPlayerManager().getPlayer(player).isVanished()) {
+                    Bukkit.broadcastMessage(ChatUtils.translate("&8[&a+&8] &a" + player.getName()));
+                }
+            }, 10);
+        }
+        else {
+            Bukkit.broadcastMessage(ChatUtils.translate("&8[&a+&8] &a" + player.getName()));
+        }
     }
 
     /**

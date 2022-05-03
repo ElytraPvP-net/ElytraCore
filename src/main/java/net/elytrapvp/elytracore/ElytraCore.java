@@ -3,6 +3,8 @@ package net.elytrapvp.elytracore;
 import net.elytrapvp.elytracore.chat.filter.FilterManager;
 import net.elytrapvp.elytracore.chat.listeners.AsyncPlayerChatListener;
 import net.elytrapvp.elytracore.chat.listeners.PlayerQuitListener;
+import net.elytrapvp.elytracore.misc.listeners.PlayerJoinListener;
+import net.elytrapvp.elytracore.staff.players.StaffPlayerManager;
 import net.elytrapvp.elytracore.utilities.commands.AbstractCommand;
 import net.elytrapvp.elytracore.utilities.gui.GUIListeners;
 import org.bukkit.Bukkit;
@@ -12,6 +14,7 @@ public class ElytraCore extends JavaPlugin {
     private FilterManager filterManager;
     private MySQL mySQL;
     private SettingsManager settingsManager;
+    private StaffPlayerManager staffPlayerManager;
 
     @Override
     public void onEnable() {
@@ -24,9 +27,11 @@ public class ElytraCore extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(this), this);
         Bukkit.getPluginManager().registerEvents(new GUIListeners(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PlayerQuitListener(this), this);
 
         filterManager = new FilterManager();
+        staffPlayerManager = new StaffPlayerManager(this);
 
         new ElytraCoreAPI(this);
     }
@@ -53,5 +58,13 @@ public class ElytraCore extends JavaPlugin {
      */
     public SettingsManager getSettingsManager() {
         return settingsManager;
+    }
+
+    /**
+     * Get the Staff Player manager, which manages StaffPlayer objects.
+     * @return Staff player manager.
+     */
+    public StaffPlayerManager getStaffPlayerManager() {
+        return staffPlayerManager;
     }
 }
