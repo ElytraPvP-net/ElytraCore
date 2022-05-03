@@ -18,6 +18,9 @@ public class PlayerQuitListener implements Listener {
         Player player = event.getPlayer();
         plugin.getFilterManager().removePlayer(player);
 
+        // Disables default quit message.
+        event.setQuitMessage(null);
+
         if(player.hasPermission("elytracore.staff")) {
             if(!plugin.getStaffPlayerManager().getPlayer(player).isVanished()) {
                 Bukkit.broadcastMessage(ChatUtils.translate("&8[&c-&8] &c" + player.getName()));
