@@ -16,6 +16,8 @@ commands:
 
   broadcast:
     aliases: [bc,announce,a]
+  enderchest:
+    aliases: [ec]
   feed:
   heal:
   rename:
