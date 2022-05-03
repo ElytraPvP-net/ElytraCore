@@ -19,6 +19,7 @@ commands:
   feed:
   heal:
   rename:
+  speed:
   workbench:
     aliases: [wb,craft]
 
