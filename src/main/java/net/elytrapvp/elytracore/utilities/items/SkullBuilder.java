@@ -114,7 +114,7 @@ public class SkullBuilder {
     }
 
     private static byte[] longToBytes(long x) {
-        var buffer = ByteBuffer.allocate(Long.BYTES);
+        ByteBuffer buffer = ByteBuffer.allocate(Long.BYTES);
         buffer.putLong(x);
         return buffer.array();
     }
