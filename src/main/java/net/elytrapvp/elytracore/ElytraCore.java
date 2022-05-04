@@ -36,6 +36,11 @@ public class ElytraCore extends JavaPlugin {
         staffPlayerManager = new StaffPlayerManager(this);
 
         new ElytraCoreAPI(this);
+
+        // If PlaceholderAPI is installed, enables placeholders
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            new Placeholders(this).register();
+        }
     }
 
     /**
