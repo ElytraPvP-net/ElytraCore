@@ -18,7 +18,7 @@ public class VanishCMD extends AbstractCommand {
      * @param plugin Instance of the plugin.
      */
     public VanishCMD(ElytraCore plugin) {
-        super("vanish", "elytacore.vanish", false);
+        super("vanish", "elytracore.vanish", false);
         this.plugin = plugin;
     }
 
