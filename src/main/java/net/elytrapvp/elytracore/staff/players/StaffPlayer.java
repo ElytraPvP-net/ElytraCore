@@ -35,19 +35,6 @@ public class StaffPlayer {
                 if(results.next()) {
                     spying = results.getBoolean(3);
                     vanished = results.getBoolean(2);
-
-                    System.out.println("Vanished: " + vanished);
-
-                    /*
-                    if(vanished) {
-                        Bukkit.getScheduler().runTask(plugin, () -> {
-                            for(Player pl : Bukkit.getOnlinePlayers()) {
-                                pl.hidePlayer(player);
-                            }
-                        });
-                    }
-
-                     */
                 }
                 else {
                     PreparedStatement statement2 = plugin.getMySQL().getConnection().prepareStatement("INSERT INTO staff_settings (uuid) VALUES (?)");
