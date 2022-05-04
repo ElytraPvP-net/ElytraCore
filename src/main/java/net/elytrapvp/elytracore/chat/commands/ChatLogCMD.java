@@ -63,31 +63,52 @@ public class ChatLogCMD extends AbstractCommand {
         public ChatLogGUI(String target, String uuid, int page) {
             super(54, "Chat Log - " + target);
 
-            /*
-            int[] fillers = {0,1,2,3,4,5,6,7,8,45,46,47,49,51,52,53};
-            for(int i : fillers) {
-                setItem(i, new ItemBuilder(Material.GRAY_STAINED_GLASS_PANE).setDisplayName(" ").build());
-            }
+            String version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
+            int subVersion = Integer.parseInt(version.replace("1_", "").replaceAll("_R\\d", "").replace("v", ""));
 
-             */
+            if(subVersion >= 13) {
+                int[] fillers = {0,1,2,3,4,5,6,7,8,45,46,47,49,51,52,53};
+                for(int i : fillers) {
+                    setItem(i, new ItemBuilder(Material.GRAY_STAINED_GLASS_PANE).setDisplayName(" ").build());
+                }
 
-            if(page == 1) {
-                ItemStack previous = new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg0ZjU5NzEzMWJiZTI1ZGMwNThhZjg4OGNiMjk4MzFmNzk1OTliYzY3Yzk1YzgwMjkyNWNlNGFmYmEzMzJmYyJ9fX0=")
-                        .setDisplayName("&cPrevious Page")
+                if(page == 1) {
+                    ItemStack previous = new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg0ZjU5NzEzMWJiZTI1ZGMwNThhZjg4OGNiMjk4MzFmNzk1OTliYzY3Yzk1YzgwMjkyNWNlNGFmYmEzMzJmYyJ9fX0=")
+                            .setDisplayName("&cPrevious Page")
+                            .build();
+                    setItem(48, previous);
+                }
+                else {
+                    ItemStack previous = new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzU0YWFhYjM5NzY0NjQxZmY4NjI3OTMyZDJmZTFhNGNjY2VkOTY1Mzc1MDhkNGFiYzZjZDVmYmJiODc5MTMifX19")
+                            .setDisplayName("&aPrevious Page")
+                            .build();
+                    setItem(48, previous, (p,a) -> new ChatLogGUI(target, uuid, page-1).open(p));
+                }
+
+                ItemStack next = new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTYzMzlmZjJlNTM0MmJhMThiZGM0OGE5OWNjYTY1ZDEyM2NlNzgxZDg3ODI3MmY5ZDk2NGVhZDNiOGFkMzcwIn19fQ==")
+                        .setDisplayName("&aNext Page")
                         .build();
-                setItem(48, previous);
+                setItem(50, next, (p,a) -> new ChatLogGUI(target, uuid, page+1).open(p));
             }
             else {
-                ItemStack previous = new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzU0YWFhYjM5NzY0NjQxZmY4NjI3OTMyZDJmZTFhNGNjY2VkOTY1Mzc1MDhkNGFiYzZjZDVmYmJiODc5MTMifX19")
-                        .setDisplayName("&aPrevious Page")
-                        .build();
-                setItem(48, previous, (p,a) -> new ChatLogGUI(target, uuid, page-1).open(p));
-            }
+                if(page == 1) {
+                    ItemStack previous = new ItemBuilder(Material.ARROW)
+                            .setDisplayName("&cPrevious Page")
+                            .build();
+                    setItem(48, previous);
+                }
+                else {
+                    ItemStack previous = new ItemBuilder(Material.ARROW)
+                            .setDisplayName("&aPrevious Page")
+                            .build();
+                    setItem(48, previous, (p,a) -> new ChatLogGUI(target, uuid, page-1).open(p));
+                }
 
-            ItemStack next = new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTYzMzlmZjJlNTM0MmJhMThiZGM0OGE5OWNjYTY1ZDEyM2NlNzgxZDg3ODI3MmY5ZDk2NGVhZDNiOGFkMzcwIn19fQ==")
-                    .setDisplayName("&aNext Page")
-                    .build();
-            setItem(50, next, (p,a) -> new ChatLogGUI(target, uuid, page+1).open(p));
+                ItemStack next = new ItemBuilder(Material.ARROW)
+                        .setDisplayName("&aNext Page")
+                        .build();
+                setItem(50, next, (p,a) -> new ChatLogGUI(target, uuid, page+1).open(p));
+            }
 
             Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
                 try {
