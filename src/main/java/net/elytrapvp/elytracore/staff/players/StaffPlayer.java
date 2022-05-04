@@ -33,21 +33,29 @@ public class StaffPlayer {
                 ResultSet results = statement.executeQuery();
 
                 if(results.next()) {
-                    spying = results.getBoolean(2);
-                    vanished = results.getBoolean(3);
+                    spying = results.getBoolean(3);
+                    vanished = results.getBoolean(2);
 
+                    System.out.println("Vanished: " + vanished);
+
+                    /*
                     if(vanished) {
                         Bukkit.getScheduler().runTask(plugin, () -> {
                             for(Player pl : Bukkit.getOnlinePlayers()) {
-                                pl.hidePlayer(plugin, player);
+                                pl.hidePlayer(player);
                             }
                         });
                     }
+
+                     */
                 }
                 else {
                     PreparedStatement statement2 = plugin.getMySQL().getConnection().prepareStatement("INSERT INTO staff_settings (uuid) VALUES (?)");
                     statement2.setString(1, player.getUniqueId().toString());
                     statement2.executeUpdate();
+
+                    spying = false;
+                    vanished = false;
                 }
             }
             catch (SQLException exception) {
@@ -113,7 +121,7 @@ public class StaffPlayer {
                     continue;
                 }
 
-                pl.showPlayer(plugin, player);
+                pl.showPlayer(player);
             }
         }
         else {
@@ -122,7 +130,7 @@ public class StaffPlayer {
                     continue;
                 }
 
-                pl.hidePlayer(plugin, player);
+                pl.hidePlayer(player);
             }
         }
 

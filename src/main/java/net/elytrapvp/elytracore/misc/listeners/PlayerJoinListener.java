@@ -71,6 +71,7 @@ public class PlayerJoinListener implements Listener {
         // Checks if a player is a staff member.
         if(player.hasPermission("elytracore.staff")) {
             plugin.getStaffPlayerManager().addPlayer(player);
+
             Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, () -> {
 
                 if(!plugin.getStaffPlayerManager().getPlayer(player).isVanished()) {
@@ -79,10 +80,10 @@ public class PlayerJoinListener implements Listener {
                 else {
                     for(Player pl : Bukkit.getOnlinePlayers()) {
                         if(pl.equals(player)) {
-                            continue;
+                            return;
                         }
 
-                        pl.hidePlayer(plugin, player);
+                        pl.hidePlayer(player);
                     }
                 }
             }, 15);
@@ -93,7 +94,7 @@ public class PlayerJoinListener implements Listener {
 
         // Hide vanished players.
         for(StaffPlayer staff : plugin.getStaffPlayerManager().getVanishEnabled()) {
-            player.hidePlayer(plugin, staff.getPlayer());
+            player.hidePlayer(staff.getPlayer());
         }
     }
 
