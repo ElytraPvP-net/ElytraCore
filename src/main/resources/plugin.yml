@@ -41,6 +41,14 @@ commands:
     aliases: [ec]
     permission: elytracore.enderchest
     permission-message: *noperms
+  fakejoin:
+    aliases: [fj]
+    permission: elytracore.fakejoin
+    permission-message: *noperms
+  fakequit:
+    aliases: [fq,fl,fakeleave]
+    permission: elytracore.fakequit
+    permission-message: *noperms
   feed:
     permission: elytracore.feed
     permission-message: *noperms
