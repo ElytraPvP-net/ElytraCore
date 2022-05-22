@@ -6,6 +6,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.util.ChatPaginator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -87,6 +88,17 @@ public class ItemBuilder {
         lore.add(ChatUtils.translate(str));
         meta.setLore(lore);
 
+        return this;
+    }
+
+    /**
+     * Add lore that automatically wraps to an item.
+     * @param lore Lore to add
+     * @param lineLength Length of each line.
+     * @return ItemBuilder.
+     */
+    public ItemBuilder addLore(String lore, int lineLength) {
+        addLore(Arrays.asList(ChatPaginator.wordWrap(ChatUtils.translate(lore),lineLength)));
         return this;
     }
 
