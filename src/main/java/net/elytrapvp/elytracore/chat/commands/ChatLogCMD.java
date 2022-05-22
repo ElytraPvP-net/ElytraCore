@@ -6,6 +6,7 @@ import net.elytrapvp.elytracore.utilities.commands.AbstractCommand;
 import net.elytrapvp.elytracore.utilities.gui.CustomGUI;
 import net.elytrapvp.elytracore.utilities.items.ItemBuilder;
 import net.elytrapvp.elytracore.utilities.items.SkullBuilder;
+import net.elytrapvp.elytracore.utilities.items.XMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
@@ -91,6 +92,14 @@ public class ChatLogCMD extends AbstractCommand {
                 setItem(50, next, (p,a) -> new ChatLogGUI(target, uuid, page+1).open(p));
             }
             else {
+                // Loads the filler items.
+                int[] fillers = {0,1,2,3,4,5,6,7,8,45,46,47,49,51,52,53};
+                ItemBuilder builder = new ItemBuilder(XMaterial.GRAY_STAINED_GLASS_PANE.parseItem())
+                        .setDisplayName(" ");
+                for(int i : fillers) {
+                    setItem(i, builder.build());
+                }
+
                 if(page == 1) {
                     ItemStack previous = new ItemBuilder(Material.ARROW)
                             .setDisplayName("&cPrevious Page")
