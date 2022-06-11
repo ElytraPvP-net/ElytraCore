@@ -72,6 +72,9 @@ commands:
     permission-message: *noperms
   personalclearchat:
     aliases: [playerclearchat,pcc]
+  punish:
+    permission: elytracore.punish
+    permission-message: *noperms
   rename:
     permission: elytracore.rename
     permission-message: *noperms
