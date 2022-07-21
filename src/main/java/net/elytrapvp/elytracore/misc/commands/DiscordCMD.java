@@ -1,17 +1,16 @@
-package net.elytrapvp.elytraduels.commands;
+package net.elytrapvp.elytracore.misc.commands;
 
-import net.elytrapvp.elytraduels.ElytraDuels;
-import net.elytrapvp.elytraduels.utils.chat.ChatUtils;
+import net.elytrapvp.elytracore.utilities.chat.ChatUtils;
+import net.elytrapvp.elytracore.utilities.commands.AbstractCommand;
 import org.bukkit.entity.Player;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
 public class DiscordCMD extends AbstractCommand {
-    private ElytraDuels plugin;
 
-    public DiscordCMD(ElytraDuels plugin) {
-        super("discord", "", false);
-        this.plugin = plugin;
+
+    public DiscordCMD() {
+        super("discord", "", true);
     }
 
     @Override
