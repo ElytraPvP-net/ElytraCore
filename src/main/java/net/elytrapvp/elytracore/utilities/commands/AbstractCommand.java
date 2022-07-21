@@ -67,6 +67,7 @@ public abstract class AbstractCommand implements CommandExecutor {
         new RulesCMD();
         //new SpeedCMD();
         new WorkbenchCMD();
+        new DiscordCMD()
     }
 
     /**
